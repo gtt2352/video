@@ -14,7 +14,7 @@ class Index extends Base
     //主页
 	public function index(Classify $classify)
 	{
-		
+		echo '123456';
 		
 	}
 	public function hook()
