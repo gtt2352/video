@@ -14,9 +14,13 @@ class Index extends Base
     //主页
 	public function index(Classify $classify)
 	{
-		echo 111;
+		
+		
 	}
-	
+	public function hook()
+	{
+		echo exec('git pull');
+	}
 
 	// 女装
 	public function women(Classify $classify)
