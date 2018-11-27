@@ -27,7 +27,8 @@ class Index extends Base
 	public function lunbo()
 	{
 		$list = Db::name('list')->order('like desc')->limit(0,3)->select();
-		var_dump($list);
+		echo json_encode(['error'=>0,'message'=>'获取信息成功','data'=>$list]);
+		exit;
 	}
 	
    
