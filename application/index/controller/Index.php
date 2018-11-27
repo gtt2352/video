@@ -15,7 +15,7 @@ class Index extends Base
 	public function index(Classify $classify)
 	{
 		$list = Db::name('list')->select();
-		echo json_encode($list);
+		echo json_encode(['error'=>0,'message'=>'获取信息成功','data'=>$list]);
 		
 	}
 	//执行自动拉取文件的工作
