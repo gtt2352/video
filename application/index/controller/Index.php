@@ -24,7 +24,10 @@ class Index extends Base
 	{
 		echo exec('git pull');
 	}
-
+	public function lunbo()
+	{
+		$list = Db::name('list')->order('like desc')->select();
+	}
 	
    
 
