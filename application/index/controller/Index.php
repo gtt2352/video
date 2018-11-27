@@ -27,6 +27,7 @@ class Index extends Base
 	public function lunbo()
 	{
 		$list = Db::name('list')->order('like desc')->select();
+		var_dump($list);
 	}
 	
    
