@@ -33,7 +33,7 @@ class Index extends Base
 
 		  if (request()->isGet()){
 			 //$data=input('post.');
-			 dump('post.');die;
+			 dump(input('post.'));die;
 			}
 
 		 // $tmp = file_get_contents("php://input");
