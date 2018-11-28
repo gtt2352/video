@@ -31,15 +31,8 @@ class Index extends Base
 	public function single() 
 	{
 
-		  if (request()->isGet()){
-			 //$data=input('post.');
-			 dump(input('post.'));die;
-			}
-
-		 // $tmp = file_get_contents("php://input");
-		 // var_dump($tmp);
-		// dump($_POST);
-	
+	    $id  = input('get.id');
+	    echo $id;
 		$list = Db::name('list')->where(['id'=>input('post.id')])->select();
 		exit;
 
