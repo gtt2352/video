@@ -30,6 +30,12 @@ class Index extends Base
 		echo json_encode(['error'=>0,'message'=>'获取信息成功','data'=>$list]);
 		exit;
 	}
+
+	//获取单个视频详情
+	public function() 
+	{
+		echo input('post.id');
+	}
 	
    
 
