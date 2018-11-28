@@ -31,10 +31,10 @@ class Index extends Base
 	public function single() 
 	{
 
-		dump(input('post.'));
-		 // $tmp = file_get_contents("php://input");
-		 // var_dump($tmp);
-		dump($_POST);
+		// dump(input('post.'));
+		 $tmp = file_get_contents("php://input");
+		 var_dump($tmp);
+		// dump($_POST);
 
 		$list = Db::name('list')->where(['id'=>input('post.id')])->select();
 		exit;
