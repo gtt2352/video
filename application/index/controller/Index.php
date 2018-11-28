@@ -30,17 +30,12 @@ class Index extends Base
 	//获取单个视频详情
 	public function single() 
 	{
-<<<<<<< HEAD
-		// dump(input('.'));
-		$tmp = file_get_contents("php://input");        
-        	var_dump($tmp);
-		
-=======
+
 		dump(input('post.'));
 		 // $tmp = file_get_contents("php://input");
 		 // var_dump($tmp);
 		dump($_POST);
->>>>>>> 32bb604bb265d4674bafbd2fc52d433fb425393d
+
 		$list = Db::name('list')->where(['id'=>input('post.id')])->select();
 		exit;
 
