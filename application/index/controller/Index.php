@@ -33,7 +33,7 @@ class Index extends Base
 	{
 		// dump(input('.'));
 		$tmp = json_decode(file_get_contents("php://input"),true);
-		var_dump($tmp['id']);
+		var_dump($tmp);
 		
 		$list = Db::name('list')->where(['id'=>input('post.id')])->select();
 		exit;
