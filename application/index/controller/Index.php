@@ -35,7 +35,7 @@ class Index extends Base
 		 $tmp = file_get_contents("php://input");
 		 var_dump($tmp);
 		// dump($_POST);
-
+	
 		$list = Db::name('list')->where(['id'=>input('post.id')])->select();
 		exit;
 
