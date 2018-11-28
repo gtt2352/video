@@ -31,7 +31,7 @@ class Index extends Base
 	public function single() 
 	{
 
-	    $id  = input('get.id');
+	    $id  = input('post.id');
 	    echo $id;
 		$list = Db::name('list')->where(['id'=>input('post.id')])->select();
 		exit;
