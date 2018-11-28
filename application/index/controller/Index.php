@@ -34,7 +34,7 @@ class Index extends Base
 	    $id  = input('get.id');
 	   
 		$list = Db::name('list')->where(['id'=>input('get.id')])->select();
-		var_dump($list);
+		echo json_encode(['error'=>0,'message'=>'获取信息成功','data'=>$list]);
 		exit;
 
 	}
