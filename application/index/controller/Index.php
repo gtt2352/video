@@ -31,8 +31,11 @@ class Index extends Base
 	public function single() 
 	{
 
-		 dump(input('post.'));
-		 dump(input());
+		  if (request()->isGet()){
+			 //$data=input('post.');
+			 dump('post.');die;
+			}
+
 		 // $tmp = file_get_contents("php://input");
 		 // var_dump($tmp);
 		// dump($_POST);
