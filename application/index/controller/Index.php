@@ -32,7 +32,7 @@ class Index extends Base
 	}
 
 	//获取单个视频详情
-	public function() 
+	public function single() 
 	{
 		echo input('post.id');
 	}
