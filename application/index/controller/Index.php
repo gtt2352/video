@@ -32,8 +32,9 @@ class Index extends Base
 	{
 
 	    $id  = input('post.id');
-	    echo $id;
+	   
 		$list = Db::name('list')->where(['id'=>input('post.id')])->select();
+		var_dump($list);
 		exit;
 
 	}
