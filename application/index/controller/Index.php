@@ -20,10 +20,7 @@ class Index extends Base
 		
 	}
 	//执行自动拉取文件的工作
-	public function hook()
-	{
-		echo exec('git pull');
-	}
+	
 	public function lunbo()
 	{
 		$list = Db::name('list')->order('like desc')->limit(0,3)->select();
@@ -34,8 +31,8 @@ class Index extends Base
 	//获取单个视频详情
 	public function single() 
 	{
-		var_dump($_POST);
-		// var_dump(input('post.'));
+		// dump(input('.'));
+		var_dump(input('post.'));
 		$list = Db::name('list')->where(['id'=>input('post.id')])->select();
 		exit;
 
