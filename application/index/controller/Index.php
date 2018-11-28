@@ -32,8 +32,8 @@ class Index extends Base
 	public function single() 
 	{
 		// dump(input('.'));
-		$tmp = file_get_contents("php://input");
-		var_dump($tmp.id);
+		$tmp = json_encode(file_get_contents("php://input"));
+		var_dump($tmp);
 		$list = Db::name('list')->where(['id'=>input('post.id')])->select();
 		exit;
 
