@@ -34,7 +34,7 @@ class Index extends Base
 	//获取单个视频详情
 	public function single() 
 	{
-		echo input('post.id');
+		var_dump($_POST);
 		var_dump(input('post.'));
 		$list = Db::name('list')->where(['id'=>input('post.id')])->select();
 		exit;
