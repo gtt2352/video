@@ -1,7 +1,7 @@
 <?php
 namespace app\index\model;
 use think\Model;
-class Order extends Model
+class Comment extends Model
 {
 	
 }
