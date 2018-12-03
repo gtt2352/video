@@ -182,16 +182,25 @@ class Index extends Controller
 
   	public function app()
   	{
-  		$appid = input('post.appid');
+  		$appid = input('get.appid');
 
-  		$secret = input('post.secret');
-  		$js_code = input('post.js_code');
+  		$secret = input('get.secret');
+  		$js_code = input('get.js_code');
 
-  		$url = 'https://api.weixin.qq.com/sns/jscode2session?appid=' . $appid . '&secret='.$secret. '&js_code='.$js_code.'&grant_type=authorization_code';
-  		// echo $url;
+  		$url = "https://api.weixin.qq.com/sns/jscode2session?appid=$appid&secret=$secret&js_code=$js_code&grant_type=authorization_code";
+  		$ch = curl_init();
+		$timeout = 5;
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+		$contents = curl_exec($ch);
+		curl_close($ch);  		
+
+
+
   		
-  		$res = $this->redirect($url);
-  		echo json_encode($res);
+  		echo $contents ;
+		exit;
   	}
  }
 
