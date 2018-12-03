@@ -188,9 +188,9 @@ class Index extends Controller
   		$js_code = input('post.js_code');
 
   		$url = 'https://api.weixin.qq.com/sns/jscode2session?appid=' . $appid . '&secret='.$secret. '&js_code='.$js_code.'&grant_type=authorization_code';
-  		// echo $url;
+  		echo $url;
   		
-  		$res = $this->redirect($url);
+  		// $res = $this->redirect($url);
   		echo json_encode($res);
   	}
  }
