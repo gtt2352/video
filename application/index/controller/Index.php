@@ -24,8 +24,18 @@ class Index extends Controller
     //主页所有视频图片接口
 	public function index()
 	{
-		$list = Db::name('list')->select();
-		echo json_encode(['error'=>0,'message'=>'获取信息成功','data'=>$list]);
+		$mem = new Memcached();
+		$mem->addServer('127.0.0.1',11211);
+		$data = $mem->get('hot');
+		if(!$data){
+			$list = Db::name('list')->select();
+			$data = $list;
+			echo json_encode(['error'=>0,'message'=>'从数据库读取','data'=>$data]);
+		}else{
+			echo json_encode(['error'=>0,'message'=>'从mem读取数据','data'=>$data]);
+		}
+		
+		
 		exit;
 		
 	}
@@ -182,16 +192,23 @@ class Index extends Controller
 
   	public function app()
   	{
-  		$appid = input('post.appid');
+  		$appid = input('get.appid');
 
-  		$secret = input('post.secret');
-  		$js_code = input('post.js_code');
+  		$secret = input('get.secret');
+  		$js_code = input('get.js_code');
 
-  		$url = 'https://api.weixin.qq.com/sns/jscode2session?appid=' . $appid . '&secret='.$secret. '&js_code='.$js_code.'&grant_type=authorization_code';
-  		echo $url;
-  		
-  		// $res = $this->redirect($url);
-  		echo json_encode($res);
+  		$url = "https://api.weixin.qq.com/sns/jscode2session?appid=$appid&secret=$secret&js_code=$js_code&grant_type=authorization_code";
+  		$ch = curl_init();
+		$timeout = 5;
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+		$contents = curl_exec($ch);
+		curl_close($ch);  		
+
+  		echo $contents ;
+		exit;
+
   	}
  }
 
