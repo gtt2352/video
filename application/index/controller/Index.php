@@ -24,6 +24,8 @@ class Index extends Controller
     //主页所有视频图片接口
 	public function index()
 	{
+		echo phpinfo();
+		return;
 		$mem = new Memcached();
 		$mem->addServer('127.0.0.1',11211);
 		$data = $mem->get('hot');
